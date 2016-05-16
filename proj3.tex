@@ -1,0 +1,72 @@
+\documentclass[a4paper]{article}
+
+\usepackage[english]{babel}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+
+\title{CMSC 471 Artificial Intelligence\\
+	Project 3 Image Recognition}
+\author{Siqi Lin\\
+	Prof.Maksym Morawski}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+The purpose of this paper demonstrate the approach in solving a image recognition problem and evaluate the accuracy to the approach. After examining and executing the image recognition problem, the results of the approach yields an accurate outcome.
+
+\section{Problem}
+The problem that we aim to solve is to identify what an image illustrates given a set of labels. With a set of training images, the solution would be deprived from a supervised learning process with the labels. 
+\section{Overview of Support Vector Machine}
+ 
+Among all the different supervised learning models, we have adapted Support Vector Machine (SVM). A SVM generates a hyperplane in a particular dimensional space that can classify a new data based on the training data. More formally, a hyperplane is converted to another hyperplane in a higher dimensional space by applying a kernel trick. 
+
+\section{Approach}
+
+To execute image recognition correctly, the image recognition program has utilized openCV, which is an open-source library developed by Intel research center. 
+The first step to solve the problem is to train the training sets. Given five different sets of training images, a 250 x 10,000 training matrix is generated. The rows of the matrix denotes the total number of images that will be trained the columns represents the pixel data for each image. In other words, each row of the training matrix is the the data for each image that was being trained. Therefore, 250 distinct images were loaded onto the training matrix. After setting up the training matrix, a labels matrix is also constructed. Because the image recognition problems falls into the category of supervised learning, in which different classes of labels are given, labeling each image is also essential to solve the problem. The labels matrix has 250 rows and 1 column where the rows denotes the number of images being labeled and the data in the column will be the actual label. After both the training matrix and labels are set, we need to initialize a support vector machine to perform training and classification. Below is a snippet of code that initialize a SVM using openCV.
+\begin{lstlisting}
+
+    //Set up the parameters
+    Ptr<ml::SVM> svm = ml::SVM::create();
+    //svm type is C_SVC
+    svm->setType(100);
+    //5-Polynomial Kernel Function
+    svm->setKernel(5);
+    svm->setGamma(3);
+    svm->setTermCriteria(TermCriteria(TermCriteria::MAX_ITER, 100, 1e-6));
+\end{lstlisting}
+After a SVM object is created, a set of parameters assigned for the purpose of the problem. The SVM type is C-Support Vector Classification and the kernel function applied is polynomial. The next step is to train the training data using the SVM that was created. Below is the C++ code that train the data sets given the labels.
+
+After the training is completed, we would need to predict the test image using the SVM. OpenCV also has a built-in function, to perform the classification of the test data. 
+\begin{lstlisting}
+     svm->predict(test_image);
+\end{lstlisting}
+
+\section{Accuracy}
+To test the accuracy of the machine learning algorithm for image recognition, the testing process is an important part to validate the image recognition program. After the implementation of the program is completed, 95 different images from all five sets of images are used to test the program. The result has shown that among 95 images, only three images produce incorrect output. The accuracy of the program is displayed below.
+\begin{center}
+  \begin{tabular}{ l | c | r }
+    \hline
+    Number of Images Tested & Number of Correct Output & Accuracy(\%) \\ \hline
+    95 & 92 & 96.85\% \\ \hline
+    \hline
+  \end{tabular}
+\end{center}
+
+
+\section{Reference}
+\begin{enumerate}
+\item http://stackoverflow.com/questions/14694810/using-opencv-and-svm-with-images
+\item http://www.cs.iit.edu/~agam/cs512/lect-notes/opencv-intro/opencv-intro.html
+\item https://www.youtube.com/watch?v=XJeP1juuHHY
+\item http://stackoverflow.com/questions/31287207/opencv-svm-training-data
+\item http://docs.opencv.org
+\end{enumerate}
+
+
+\end{document}

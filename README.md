@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=U49CVY8yOxw
 		**make**
 		**sudo make install**
 
-5) Open the project in XCode
+6. Open the project in XCode
 	- Click on the project
 	- Click on the build settings
 	- Type **Search paths**
@@ -44,7 +44,7 @@ https://www.youtube.com/watch?v=U49CVY8yOxw
 		* libopencv_highgui.3.1.0.dylib
 		* libopencv_core.3.1.0.dylib
 
-6. Set the command line arguments in XCode
+7. Set the command line arguments in XCode
 	*  On the menu bar, select Product>Scheme>Edit Scheme>
 	* Enter the file path of the image you wish to test under "Arguments Passed on Launch"
 

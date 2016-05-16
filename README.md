@@ -1,6 +1,6 @@
 # CMSC471Project3
 Image recognition program using opencv
-
+**Please email linsiqi1@gmail.com or linsiqi1@umbc.edu if you have trouble set up the enviornment**
 https://www.youtube.com/watch?v=U49CVY8yOxw 
 
 1. Make a directory called Proj3SiqiLin
@@ -44,7 +44,11 @@ https://www.youtube.com/watch?v=U49CVY8yOxw
 		* libopencv_highgui.3.1.0.dylib
 		* libopencv_core.3.1.0.dylib
 
-7. Set the command line arguments in XCode
+7. Import the Test data into the project
+	- Right Click the Project 3 executable under the Project directory on the project exploerer panel at the left hand side of Xcode
+	- Select **Show in Finder** 
+	- Copy the Data directory into the same directory that Project 3 Executable is located.
+8. Set the command line arguments in XCode
 	*  On the menu bar, select Product>Scheme>Edit Scheme>
 	* Enter the file path of the image you wish to test under "Arguments Passed on Launch"
 

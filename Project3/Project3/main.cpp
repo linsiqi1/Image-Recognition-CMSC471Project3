@@ -237,17 +237,17 @@ void output_prediction(int label)
     }
     else if(label == 3)
     {
-        cout << "The input image is a dollar" << endl;
+        cout << "The input image is a hash" << endl;
 
     }
     else if(label == 4)
     {
-        cout << "The input image is a hash" << endl;
+        cout << "The input image is a heart" << endl;
 
     }
     else if(label == 5)
     {
-        cout << "The input image is a heart" << endl;
+        cout << "The input image is a dollar" << endl;
     }
     
 }

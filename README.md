@@ -1,4 +1,4 @@
-# CMSC471Project3
+# Image-Recognition-CMSC471Project3
 Image recognition program using opencv
 **Please email linsiqi1@gmail.com or linsiqi1@umbc.edu if you have trouble set up the enviornment**
 
